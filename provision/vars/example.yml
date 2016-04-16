@@ -1,0 +1,8 @@
+---
+application: 'example'
+user: "{{ application }}"
+key_file: '~/.ssh/id_rsa.pub'
+postgresql_version: 9.5
+db_name: "{{ application }}"
+db_user: "{{ user }}"
+ubuntu: precise

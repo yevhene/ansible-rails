@@ -1,0 +1,34 @@
+---
+- name: add postgresql ppa
+  apt_repository:
+    repo: 'deb http://apt.postgresql.org/pub/repos/apt/ {{ ubuntu }}-pgdg main'
+
+- name: install postgresql ppa key
+  apt_key:
+    url: 'https://www.postgresql.org/media/keys/ACCC4CF8.asc'
+
+- name: update apt cache
+  apt: update_cache=yes
+
+- name: install prerequisites
+  apt: name=python-psycopg2
+
+- name: install postgresql
+  apt: name={{ item }}
+  with_items:
+    - "postgresql-{{ postgresql_version }}"
+    - "postgresql-server-dev-{{ postgresql_version }}"
+    - "postgresql-contrib-{{ postgresql_version }}"
+
+- name: setup user
+  become_user: postgres
+  postgresql_user:
+    name: "{{ db_user }}"
+    role_attr_flags: CREATEDB
+
+- name: allow peer access to user
+  lineinfile:
+    dest: "/etc/postgresql/{{ postgresql_version }}/main/pg_hba.conf"
+    insertafter: 'TYPE.*DATABASE.*USER.*ADDRESS.*METHOD'
+    line: "local {{ db_name }} {{ db_user }} peer"
+

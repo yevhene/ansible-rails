@@ -1,0 +1,16 @@
+---
+- name: creates user
+  user: name="{{ user }}" shell=/bin/bash
+
+- name: create user application directory
+  become_user: "{{ user }}"
+  file: path="/home/{{ user }}/app" state=directory
+
+- name: create user configuration directory
+  become_user: "{{ user }}"
+  file: path="/home/{{ user }}/conf" state=directory
+
+- name: Set up authorized_keys
+  authorized_key:
+    user: "{{ user }}"
+    key: "{{ lookup('file', key_file) }}"

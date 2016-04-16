@@ -1,0 +1,15 @@
+---
+- name: install nginx
+  apt: name=nginx
+
+- name: remove default site
+  file: path=/etc/nginx/sites-enabled/default state=absent
+
+- name: setup nginx to load all user configs
+  lineinfile:
+    dest: /etc/nginx/nginx.conf
+    insertafter: 'include.*sites-enabled.*;'
+    line: "\tinclude /home/*/conf/*.conf;"
+
+- name: restart nginx
+  service: name="nginx" state=restarted

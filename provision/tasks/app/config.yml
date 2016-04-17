@@ -6,11 +6,13 @@
 - include: ../vars/secret_key_base.yml
 
 - name: setup app configuration
+  become_user: "{{ user }}"
   template:
     src: templates/application.yml
     dest: "/home/{{ user }}/app/shared/config/application.yml"
 
 - name: setup app database configuration
+  become_user: "{{ user }}"
   template:
     src: templates/database.yml
     dest: "/home/{{ user }}/app/shared/config/database.yml"

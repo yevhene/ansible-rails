@@ -10,9 +10,11 @@
   template:
     src: templates/application.yml
     dest: "/home/{{ user }}/app/shared/config/application.yml"
+    force: no
 
-- name: setup app database configuration
+- name: setup database configuration
   become_user: "{{ user }}"
   template:
     src: templates/database.yml
     dest: "/home/{{ user }}/app/shared/config/database.yml"
+    force: no

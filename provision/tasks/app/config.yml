@@ -1,0 +1,16 @@
+---
+- name: create user app configuration directory
+  become_user: "{{ user }}"
+  file: path="/home/{{ user }}/app/shared/config" state=directory
+
+- include: ../vars/secret_key_base.yml
+
+- name: setup app configuration
+  template:
+    src: templates/application.yml
+    dest: "/home/{{ user }}/app/shared/config/application.yml"
+
+- name: setup app database configuration
+  template:
+    src: templates/database.yml
+    dest: "/home/{{ user }}/app/shared/config/database.yml"

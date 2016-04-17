@@ -14,5 +14,6 @@
     - include: tasks/vars/postgresql_version.yml
 
     - include: tasks/app/user.yml
+    - include: tasks/app/config.yml
     - include: tasks/app/postgresql.yml
     - include: tasks/app/nginx.yml

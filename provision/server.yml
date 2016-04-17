@@ -10,6 +10,8 @@
     - include: handlers/services.yml
 
   tasks:
+    - include: tasks/vars/ubuntu_version.yml
+
     - include: tasks/server/update.yml
     - include: tasks/server/locale.yml
     - include: tasks/server/dependencies.yml

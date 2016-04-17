@@ -1,0 +1,7 @@
+- name: set ubuntu version
+  shell: lsb_release -cs
+  register: ubuntu_version_result
+
+- set_fact: ubuntu_version={{ ubuntu_version_result.stdout }}
+
+- debug: var=ubuntu_version

@@ -1,5 +1,9 @@
 # Vagrant data
-.vagrant
+/.vagrant/
 
 # Retry
 *.retry
+
+# Inventory
+/inventories/
+!/inventories/.keep

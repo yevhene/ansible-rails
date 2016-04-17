@@ -12,4 +12,5 @@
 
   tasks:
     - include: tasks/app/user.yml
-    - include: tasks/app/db.yml
+    - include: tasks/app/postgresql.yml
+    - include: tasks/app/nginx.yml

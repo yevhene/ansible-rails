@@ -1,0 +1,12 @@
+---
+- name: setup user config
+  template:
+    src: templates/nginx.conf
+    dest: "/etc/nginx/sites-available/{{ app }}.conf"
+
+- name: enable user config
+  file:
+    src: "/etc/nginx/sites-available/{{ app }}.conf"
+    dest: "/etc/nginx/sites-enabled/{{ app }}.com"
+    state: link
+  notify: restart nginx

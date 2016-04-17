@@ -13,6 +13,7 @@
     - include: tasks/vars/ubuntu_version.yml
 
     - include: tasks/server/update.yml
+    - include: tasks/server/basic.yml
     - include: tasks/server/locale.yml
     - include: tasks/server/dependencies.yml
     - include: tasks/server/postgresql.yml

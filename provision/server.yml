@@ -13,5 +13,6 @@
     - include: tasks/server/update.yml
     - include: tasks/server/locale.yml
     - include: tasks/server/dependencies.yml
+    - include: tasks/server/postgresql.yml
     - include: tasks/server/ruby.yml
     - include: tasks/server/nginx.yml

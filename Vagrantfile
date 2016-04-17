@@ -2,9 +2,9 @@
 # vi: set ft=ruby :
 
 Vagrant.configure(2) do |config|
-  config.vm.box = 'ubuntu/precise64'
+  config.vm.box = 'ubuntu/trusty64'
 
-  config.vm.network 'forwarded_port', guest: 80, host: 8080
+  config.vm.network 'forwarded_port', guest: 80, host: 8888
 
   config.vm.provision :server, type: :ansible do |ansible|
     ansible.playbook = 'provision/server.yml'

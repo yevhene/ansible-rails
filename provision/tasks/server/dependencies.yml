@@ -16,3 +16,6 @@
 
 - name: install redis
   apt: name=redis-server
+
+- name: install postgresql prerequisites
+  apt: name=python-psycopg2

@@ -8,9 +8,6 @@
     url: 'https://www.postgresql.org/media/keys/ACCC4CF8.asc'
   notify: apt update
 
-- name: install prerequisites
-  apt: name=python-psycopg2
-
 - name: install postgresql
   apt: name={{ item }}
   with_items:

@@ -10,6 +10,8 @@ sudo apt-get update
 sudo apt-get install ansible
 ```
 
+## Provision
+
 ### Create inventory
 **inventories/your-inventory**
 ```
@@ -20,21 +22,24 @@ example.com
 app=example
 ```
 
-### Run playbook
+### Setup server
 ```
-ansible-playbook -i inventories/your-inventory provision/your-playbook.yml
+ansible-playbook -i inventories/your-inventory provision/server.yml
+```
+
+### Setup app
+```
+ansible-playbook -i inventories/your-inventory provision/app.yml
 ```
 
 ## Vagrant
 
 ### Setup
-
-#### Dependencies
 ```
 sudo apt-get install vagrant virtualbox
 ```
 
-#### Run
+### Run
 ```
 vagrant up
 ```

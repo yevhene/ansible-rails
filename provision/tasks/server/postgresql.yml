@@ -6,9 +6,7 @@
 - name: install postgresql ppa key
   apt_key:
     url: 'https://www.postgresql.org/media/keys/ACCC4CF8.asc'
-
-- name: update apt cache
-  apt: update_cache=yes
+  notify: apt update
 
 - name: install prerequisites
   apt: name=python-psycopg2

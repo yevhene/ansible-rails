@@ -14,4 +14,9 @@ Vagrant.configure(2) do |config|
     ansible.playbook = 'provision/app.yml'
     ansible.extra_vars = { app: 'example' }
   end
+
+  config.vm.provision :another_app, type: :ansible do |ansible|
+    ansible.playbook = 'provision/app.yml'
+    ansible.extra_vars = { app: 'another' }
+  end
 end

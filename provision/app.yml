@@ -6,6 +6,10 @@
     - vars/server.yml
     - vars/app.yml
 
+  handlers:
+    - include: handlers/common.yml
+    - include: handlers/services.yml
+
   tasks:
     - include: tasks/app/user.yml
     - include: tasks/app/db.yml

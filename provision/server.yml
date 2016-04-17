@@ -5,6 +5,10 @@
   vars_files:
     - vars/server.yml
 
+  handlers:
+    - include: handlers/common.yml
+    - include: handlers/services.yml
+
   tasks:
     - include: tasks/server/update.yml
     - include: tasks/server/locale.yml

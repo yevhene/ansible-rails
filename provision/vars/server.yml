@@ -1,0 +1,3 @@
+---
+ubuntu: precise
+postgresql_version: 9.5

@@ -2,4 +2,4 @@
 .vagrant
 
 # Retry
-provision/playbook.retry
+*.retry

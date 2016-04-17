@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: true
+
+  vars_files:
+    - vars/server.yml
+    - vars/app.yml
+
+  tasks:
+    - include: tasks/app/user.yml
+    - include: tasks/app/db.yml

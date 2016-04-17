@@ -1,0 +1,5 @@
+---
+user: "{{ app }}"
+key_file: '~/.ssh/id_rsa.pub'
+db_name: "{{ app }}"
+db_user: "{{ user }}"

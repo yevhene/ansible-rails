@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: true
+  gather_facts: no
+
+  tasks:
+    - name: install python2
+      raw: apt-get install -y python-simplejson
+
+    - name: install aptitude
+      raw: apt-get install -y aptitude

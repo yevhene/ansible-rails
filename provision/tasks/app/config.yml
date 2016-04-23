@@ -3,14 +3,18 @@
   become_user: "{{ user }}"
   file: path="/home/{{ user }}/app/shared/config" state=directory
 
+- stat: path="/home/{{ user }}/app/shared/config/application.yml"
+  register: app_config
+
 - include: ../vars/secret_key_base.yml
+  when: app_config.stat.exists == False
 
 - name: setup app configuration
   become_user: "{{ user }}"
   template:
     src: templates/application.yml
     dest: "/home/{{ user }}/app/shared/config/application.yml"
-    force: no
+  when: app_config.stat.exists == False
 
 - name: setup database configuration
   become_user: "{{ user }}"

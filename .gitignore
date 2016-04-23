@@ -7,3 +7,6 @@
 # Inventory
 /inventories/
 !/inventories/.keep
+
+# Logs
+*.log

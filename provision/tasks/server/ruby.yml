@@ -1,15 +1,9 @@
 ---
-- name: add ruby brightbox ppa
-  apt_repository: repo='ppa:brightbox/ruby-ng'
-
-- name: update apt cache
-  apt: update_cache=yes
-
 - name: install ruby
   apt: name={{ item }}
   with_items:
-    - ruby2.3
-    - ruby2.3-dev
+    - ruby
+    - ruby-dev
 
 - name: install basic gems
   gem: name={{ item }} user_install=no

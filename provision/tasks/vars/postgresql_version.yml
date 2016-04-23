@@ -1,7 +1,0 @@
-- name: set postgresql version
-  shell: 'psql --version | cut -f3 -d " " | sed "s/\([0-9]*\)\.\([0-9]*\).*/\1\.\2/"'
-  register: postgresql_version_result
-
-- set_fact: postgresql_version={{ postgresql_version_result.stdout }}
-
-- debug: var=postgresql_version

@@ -1,4 +1,8 @@
 ---
+- name: create user nginx configuration directory
+  become_user: "{{ user }}"
+  file: path="/home/{{ user }}/conf" state=directory
+
 - name: setup user config
   template:
     src: templates/nginx.conf
@@ -7,6 +11,6 @@
 - name: enable user config
   file:
     src: "/etc/nginx/sites-available/{{ app }}.conf"
-    dest: "/etc/nginx/sites-enabled/{{ app }}.com"
+    dest: "/etc/nginx/sites-enabled/{{ app }}"
     state: link
   notify: restart nginx

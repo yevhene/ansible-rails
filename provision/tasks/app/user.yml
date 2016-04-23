@@ -6,11 +6,19 @@
   become_user: "{{ user }}"
   file: path="/home/{{ user }}/app" state=directory
 
-- name: create user configuration directory
-  become_user: "{{ user }}"
-  file: path="/home/{{ user }}/conf" state=directory
-
 - name: Set up authorized_keys
   authorized_key:
     user: "{{ user }}"
     key: "{{ lookup('file', key_file) }}"
+
+- name: user environment
+  blockinfile:
+    dest: "/home/{{ user }}/.bashrc"
+    content: |
+      export RAILS_ENV=production
+
+- name: make sudoer
+  lineinfile:
+    dest: "/etc/sudoers"
+    line: "{{ user }} ALL=(ALL) NOPASSWD:ALL"
+    validate: "visudo -cf %s"

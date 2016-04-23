@@ -3,15 +3,13 @@
   become: true
 
   vars_files:
-    - vars/server.yml
+    - vars/main.yml
 
   handlers:
     - include: handlers/common.yml
     - include: handlers/services.yml
 
   tasks:
-    - include: tasks/vars/ubuntu_version.yml
-
     - include: tasks/server/update.yml
     - include: tasks/server/basic.yml
     - include: tasks/server/locale.yml

@@ -1,0 +1,3 @@
+- name: create user service directory
+  become_user: "{{ user }}"
+  file: path="/home/{{ user }}/service" state=directory

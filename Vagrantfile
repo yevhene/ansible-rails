@@ -14,8 +14,8 @@ Vagrant.configure(2) do |config|
     ansible.playbook = 'provision/server.yml'
   end
 
-  config.vm.provision :ourhome_app, type: :ansible do |ansible|
+  config.vm.provision :example_app, type: :ansible do |ansible|
     ansible.playbook = 'provision/app.yml'
-    ansible.extra_vars = { app: 'ourhome' }
+    ansible.extra_vars = { app: 'example' }
   end
 end

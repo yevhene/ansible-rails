@@ -6,7 +6,11 @@
   apt: name=git
 
 - name: install javascript runtime
-  apt: name=nodejs
+  apt: name={{ item }}
+  with_items:
+    - nodejs
+    - nodejs-legacy
+    - npm
 
 - name: install imagemagick
   apt: name={{ item }}

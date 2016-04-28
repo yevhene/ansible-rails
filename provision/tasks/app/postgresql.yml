@@ -15,6 +15,12 @@
     role:  "{{ db_user }}"
     type: database
 
+- name: enable extensions
+  postgresql_ext: name={{ item }} db={{ db_name }}
+  with_items:
+    - cube
+    - earthdistance
+
 - name: allow peer access to user
   lineinfile:
     dest: "/etc/postgresql/{{ postgresql_version }}/main/pg_hba.conf"

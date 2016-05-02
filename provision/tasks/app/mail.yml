@@ -3,15 +3,15 @@
   lineinfile:
     dest: /etc/postfix/main.cf
     line: "myhostname = {{ domain }}"
-    regexp: "myhostname"
+    regexp: "^myhostname(.*)$"
   notify: restart mail service
 
-- name: setup emails
+- name: setup aliases
   lineinfile:
-    dest: /etc/postfix/virtual
-    line: "{{ item.name }}@{{ domain }} {{ item.user }}"
+    dest: /etc/aliases
+    line: "{{ item.name }}: {{ item.user }}"
     create: yes
   with_items:
     - { name: "hello", user: "{{ user }}" }
     - { name: "admin", user: "root" }
-  notify: load mail mappings
+  notify: restart mail service

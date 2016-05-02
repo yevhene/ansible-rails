@@ -16,6 +16,6 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision :example_app, type: :ansible do |ansible|
     ansible.playbook = 'provision/app.yml'
-    ansible.extra_vars = { app: 'example' }
+    ansible.extra_vars = { app: 'example', domain: 'example.com' }
   end
 end

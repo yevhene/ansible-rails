@@ -7,8 +7,7 @@
     - vars/app.yml
 
   handlers:
-    - include: handlers/common.yml
-    - include: handlers/services.yml
+    - include: handlers/main.yml
 
   tasks:
     - include: tasks/app/user.yml
@@ -16,3 +15,5 @@
     - include: tasks/app/postgresql.yml
     - include: tasks/app/nginx.yml
     - include: tasks/app/systemd.yml
+    - include: tasks/app/domain.yml
+    - include: tasks/app/mail.yml

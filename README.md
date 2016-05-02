@@ -20,6 +20,7 @@ example.com
 
 [example:vars]
 app=example
+domain=example.com
 ```
 
 ### Setup server

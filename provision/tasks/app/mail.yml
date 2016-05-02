@@ -1,0 +1,17 @@
+---
+- name: main hostname
+  lineinfile:
+    dest: /etc/postfix/main.cf
+    line: "myhostname = {{ domain }}"
+    regexp: "myhostname"
+  notify: restart mail service
+
+- name: setup emails
+  lineinfile:
+    dest: /etc/postfix/virtual
+    line: "{{ item.name }}@{{ domain }} {{ item.user }}"
+    create: yes
+  with_items:
+    - { name: "hello", user: "{{ user }}" }
+    - { name: "admin", user: "root" }
+  notify: load mail mappings

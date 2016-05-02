@@ -24,5 +24,8 @@
 - name: install postgresql prerequisites
   apt: name=python-psycopg2
 
-- name: install postfix
-  apt: name=postfix
+- name: install mail
+  apt: name={{ item }}
+  with_items:
+    - postfix
+    - mailutils

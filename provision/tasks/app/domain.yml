@@ -1,12 +1,9 @@
 ---
 - name: set hostname
-  lineinfile:
-    dest: /etc/hostname
-    line: "{{ domain }}"
-    regexp: "^(.*)$"
+  hostname: name={{ domain }}
 
 - name: set host
   lineinfile:
     dest: /etc/hosts
     line: "127.0.0.1 localhost.localdomain localhost {{ domain }}"
-    regexp: "^127\.0\.0\.1(\s+)localhost(.*)$"
+    regexp: "127.0.0.1"

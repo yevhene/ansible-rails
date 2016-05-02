@@ -6,8 +6,7 @@
     - vars/main.yml
 
   handlers:
-    - include: handlers/common.yml
-    - include: handlers/services.yml
+    - include: handlers/main.yml
 
   tasks:
     - include: tasks/server/update.yml

@@ -16,6 +16,7 @@
     type: database
 
 - name: enable extensions
+  become_user: postgres
   postgresql_ext: name={{ item }} db={{ db_name }}
   with_items:
     - cube

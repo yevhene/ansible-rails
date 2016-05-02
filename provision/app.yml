@@ -16,3 +16,4 @@
     - include: tasks/app/postgresql.yml
     - include: tasks/app/nginx.yml
     - include: tasks/app/systemd.yml
+    - include: tasks/app/domain.yml

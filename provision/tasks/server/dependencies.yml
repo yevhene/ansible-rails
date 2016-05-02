@@ -23,3 +23,6 @@
 
 - name: install postgresql prerequisites
   apt: name=python-psycopg2
+
+- name: install postfix
+  apt: name=postfix

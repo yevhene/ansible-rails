@@ -1,9 +1,28 @@
 ---
+- name: mailname
+  template:
+    src: templates/mailname
+    dest: "/etc/mailname"
+
 - name: main hostname
   lineinfile:
     dest: /etc/postfix/main.cf
     line: "myhostname = {{ domain }}"
     regexp: "^myhostname(.*)$"
+  notify: restart mail service
+
+- name: destination
+  lineinfile:
+    dest: /etc/postfix/main.cf
+    line: "mydestination = "
+    regexp: "^mydestination(.*)$"
+  notify: restart mail service
+
+- name: relay domains
+  lineinfile:
+    dest: /etc/postfix/main.cf
+    line: "relay_domains = {{ domain }}"
+    regexp: "^relay_domains(.*)$"
   notify: restart mail service
 
 - name: setup aliases

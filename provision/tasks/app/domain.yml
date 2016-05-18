@@ -7,3 +7,10 @@
     dest: /etc/hosts
     line: "127.0.0.1 localhost.localdomain localhost {{ domain }}"
     regexp: "127.0.0.1"
+
+- name: remove defaults
+  lineinfile:
+    dest: /etc/hosts
+    regexp: "ubuntu"
+    state: absent
+

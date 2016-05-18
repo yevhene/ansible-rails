@@ -21,6 +21,8 @@ example.com
 [example:vars]
 app=example
 domain=example.com
+ansible_user=root
+ansible_connection=ssh
 ```
 
 ### Setup server

@@ -4,3 +4,4 @@
   with_items:
     - "postgresql-{{ postgresql_version }}"
     - "postgresql-server-dev-all"
+    - "postgis"

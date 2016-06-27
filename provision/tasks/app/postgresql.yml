@@ -21,6 +21,7 @@
   with_items:
     - cube
     - earthdistance
+    - postgis
 
 - name: allow peer access to user
   lineinfile:

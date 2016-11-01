@@ -1,5 +1,5 @@
 ---
-- hosts: rails
+- hosts: all
   become: true
 
   vars_files:
@@ -16,4 +16,3 @@
     - include: tasks/app/nginx.yml
     - include: tasks/app/systemd.yml
     - include: tasks/app/domain.yml
-    - include: tasks/app/mail.yml

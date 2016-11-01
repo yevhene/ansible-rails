@@ -6,7 +6,7 @@
   service: name=nginx state=restarted
 
 - name: restart postgresql
-  service: name=posgresql state=restarted
+  service: name=postgresql state=restarted
 
 - name: load mail mappings
   command: postmap /etc/postfix/virtual
